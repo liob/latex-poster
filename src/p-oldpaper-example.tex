@@ -1,0 +1,50 @@
+\documentclass[a4paper]{p-oldpaper}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{multicol}
+\usepackage{blindtext}
+\usepackage{float}
+\author{Ygritte}
+\title{Lorem Ipsum et Dolore Sine}
+
+\overlay{img/oldpaper_overlay}
+\definecolor{ornament}{rgb}{0, 0, 0}
+
+\header{
+	\begin{multicols}{3}
+		\blindtext
+	\end{multicols}
+}
+
+\footer{
+	\begin{multicols}{3}
+		\blindtext
+	\end{multicols}
+}
+
+\begin{document}
+\begin{multicols}{4}
+	\section{Methods}
+	\blindtext
+	
+	\section{Results}
+	\blindtext
+	
+	\begin{figure}[H]
+	some figure
+	\caption{Some Figure}
+	\end{figure}
+	
+	\blindtext
+	
+	\blindtext
+	
+	\section{Discussion}
+	\blindtext
+	
+	\blindtext
+	
+\end{multicols}
+\end{document}
