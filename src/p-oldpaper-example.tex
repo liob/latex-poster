@@ -1,31 +1,56 @@
 \documentclass[a4paper]{p-oldpaper}
 \usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{multicol}
 \usepackage{blindtext}
 \usepackage{float}
-\author{Ygritte}
-\title{Lorem Ipsum et Dolore Sine}
+
+\title{Lorem Ipsum\\ et Dolore Sine}
 
 \overlay{img/oldpaper_overlay}
-\definecolor{ornament}{rgb}{0, 0, 0}
+%\definecolor{ornament}{rgb}{0.34, 0.33, 0.30}
 
-\header{
-	\begin{multicols}{3}
-		\blindtext
-	\end{multicols}
-}
+\author[1]{Ygritte}
+\author[1]{John Snow}
+\author[2]{Tyrion Lannister}
+\affil[1]{House Stark}
+\affil[2]{House Lannister}
+
+\contact{Contact: ygritte@gmail.com}
 
 \footer{
 	\begin{multicols}{3}
-		\blindtext
+		\section*{References}
+		\break
+		
+		\section*{Acknowledgement}
+		I would like to express my very great appreciation to Dr *** for his valuable and constructive suggestions during the planning and development of this research work. His willingness to give his time so generously has been very much appreciated.
+		
+		\break
+		
+		\begin{pgfpicture}
+			\pgftext{\pgfimage[width=0.1\paperheight,height=0.1\paperheight]{Logo}}
+		\end{pgfpicture}
+		\hfill
+		\begin{pgfpicture}
+			\pgftext{\pgfimage[width=0.1\paperheight,height=0.1\paperheight]{Logo}}
+		\end{pgfpicture}
+		\hfill
+		\begin{pgfpicture}
+			\pgftext{\pgfimage[width=0.1\paperheight,height=0.1\paperheight]{Logo}}
+		\end{pgfpicture}
 	\end{multicols}
 }
 
 \begin{document}
 \begin{multicols}{4}
+
+	\section{Aims}
+	\blindtext
+
 	\section{Methods}
 	\blindtext
 	
@@ -33,8 +58,12 @@
 	\blindtext
 	
 	\begin{figure}[H]
-	some figure
-	\caption{Some Figure}
+		\begin{center}
+		\begin{pgfpicture}
+			\pgftext{\pgfimage[width=0.15\paperheight,height=0.15\paperheight]{Figure}}
+		\end{pgfpicture}
+		\end{center}
+		\caption{Some Figure}
 	\end{figure}
 	
 	\blindtext
