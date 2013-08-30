@@ -4,6 +4,7 @@
 \pagestyle{empty}
 
 \RequirePackage{geometry}
+\RequirePackage{calc}
 \RequirePackage{anyfontsize}
 \RequirePackage[draft]{pgf}
 \RequirePackage{tikz}
@@ -31,15 +32,27 @@
 % ToDo: make normalsize dependant on sqrt(\paperwidth*\paperheight)
 %\RequirePackage{fp}
 %\FPeval{AR}{pow(\the\paperwidth,4)}
-\renewcommand{\normalsize}{\fontsize{0.01\paperwidth}{0.012\paperwidth}\selectfont}
-\setlength{\columnsep}{0.04\textwidth}
+\newlength\tAR{}
+\newcommand\textmagnification[1]{
+	\setlength{\tAR}{0.01\paperwidth*\real{#1}}
+	
+	\renewcommand{\tiny}{\fontsize{0.6\tAR}{0.62\tAR}\selectfont}
+	\renewcommand{\scriptsize}{\fontsize{0.7\tAR}{0.72\tAR}\selectfont}
+	\renewcommand{\footnotesize}{\fontsize{0.8\tAR}{0.82\tAR}\selectfont}
+	\renewcommand{\small}{\fontsize{0.9\tAR}{0.92\tAR}\selectfont}
+	\renewcommand{\normalsize}{\fontsize{\tAR}{1.02\tAR}\selectfont}
+	\renewcommand{\large}{\fontsize{1.2\tAR}{1.22\tAR}\selectfont}
+	\renewcommand{\Large}{\fontsize{1.4\tAR}{1.42\tAR}\selectfont}
+	\renewcommand{\LARGE}{\fontsize{1.6\tAR}{1.62\tAR}\selectfont}
+	\renewcommand{\huge}{\fontsize{1.8\tAR}{1.82\tAR}\selectfont}
+	\renewcommand{\Huge}{\fontsize{2\tAR}{2.02\tAR}\selectfont}
+	%\renewcommand{\HUGE}{\fontsize{2\tAR}{2.02\tAR}\selectfont}
+}
+\textmagnification{1}
 
+\setlength{\columnsep}{0.04\textwidth}
 \newlength\titlefontsize{}
-\setlength{\titlefontsize}{0.045\paperheight}
-\newlength\authorfontsize{}
-\setlength{\authorfontsize}{0.02\paperheight}
-\newlength\institutefontsize{}
-\setlength{\institutefontsize}{0.014\paperheight}
+\setlength{\titlefontsize}{3.4\tAR}
 
 \definecolor{umred}{rgb}{0.74901961, 0.062745098, 0.16862745}
 \definecolor{umgray}{rgb}{0.25098039, 0.25098039, 0.25098039}
@@ -66,7 +79,7 @@
 	% title section
 	\noindent\begin{minipage}{\textwidth}
 		\vcenteredhbox{
-			\begin{tikzpicture}[scale=0.0015\paperheight]
+			\begin{tikzpicture}[scale=0.1\tAR]
 			\draw [ultra thick, draw=ornament, fill=ornament]
 				(0,0) --(1.5,2) -- (4.5,2) -- (3,0) -- cycle;
 			\end{tikzpicture}
@@ -76,7 +89,7 @@
 		\end{varwidth}
 		\hspace{0.01\textwidth}
 		\vcenteredhbox{
-			\begin{tikzpicture}[scale=0.0015\paperheight]
+			\begin{tikzpicture}[scale=0.1\tAR]
 			\draw [ultra thick, draw=ornament, fill=ornament]
 				(0,0) --(0,2) -- (\textwidth,2) -- (\textwidth,0) -- cycle;
 			\end{tikzpicture}
