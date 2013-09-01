@@ -78,6 +78,17 @@
 	\setboolean{overlayimg_isset}{true}
 	}
 
+\newcommand\gradientcolorA{}
+\newcommand\gradientcolorB{}
+\newcommand\gradientcolorAngle{}
+\newboolean{gradientcolors_isset}
+\newcommand\gradient[3]{
+	\renewcommand\gradientcolorA{#1}%
+	\renewcommand\gradientcolorB{#2}%
+	\renewcommand\gradientcolorAngle{#3}%
+	\setboolean{gradientcolors_isset}{true}
+	}
+
 \newcommand\affillist{\AB@affillist{}}
 
 \newcommand*{\vcenteredhbox}[1]{\begingroup
@@ -85,6 +96,18 @@
 
 
 \AtBeginDocument{
+	% bg gradient
+	\ifthenelse{\boolean{gradientcolors_isset}}{
+		\begin{tikzpicture}[remember picture, overlay]
+			\node[inner sep=0pt] at (current page.center) {
+				\begin{tikzpicture}
+				\shade[shading=axis,bottom color=\gradientcolorB,top color=\gradientcolorA,shading angle=\gradientcolorAngle]
+				(0,0) rectangle (\paperwidth,\paperheight);
+				\end{tikzpicture}
+			};
+		\end{tikzpicture}
+	}{}
+
 	% title section
 	\noindent\begin{minipage}{\textwidth}
 		\vcenteredhbox{
