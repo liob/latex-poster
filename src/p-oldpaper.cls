@@ -34,9 +34,11 @@
 %\RequirePackage{fp}
 %\FPeval{AR}{pow(\the\paperwidth,4)}
 %\SQUAREROOT{\paperwidth*\paperheight}{\solution}
+\newlength\AR{}
+\setlength{\AR}{0.01\paperwidth}
 \newlength\tAR{}
 \newcommand\textmagnification[1]{
-	\setlength{\tAR}{0.01\paperwidth*\real{#1}}
+	\setlength{\tAR}{\AR*\real{#1}}
 	
 	\renewcommand{\tiny}{\fontsize{0.6\tAR}{0.62\tAR}\selectfont}
 	\renewcommand{\scriptsize}{\fontsize{0.7\tAR}{0.72\tAR}\selectfont}
@@ -119,7 +121,7 @@
 	% title section
 	\noindent\begin{minipage}{\textwidth}
 		\vcenteredhbox{
-			\begin{tikzpicture}[scale=0.1\tAR]
+			\begin{tikzpicture}[scale=0.1\AR]
 			\draw [ultra thick, draw=ornament, fill=ornament]
 				(0,0) --(1.5,2) -- (4.5,2) -- (3,0) -- cycle;
 			\end{tikzpicture}
@@ -129,7 +131,7 @@
 		\end{varwidth}
 		\hspace{0.01\textwidth}
 		\vcenteredhbox{
-			\begin{tikzpicture}[scale=0.1\tAR]
+			\begin{tikzpicture}[scale=0.1\AR]
 			\draw [ultra thick, draw=ornament, fill=ornament]
 				(0,0) --(0,2) -- (\textwidth,2) -- (\textwidth,0) -- cycle;
 			\end{tikzpicture}
@@ -141,7 +143,7 @@
 		\end{flushright}
 	\end{minipage}
 	%
-	\noindent\rule{\textwidth}{0.2\tAR}
+	\noindent\rule{\textwidth}{0.2\AR}
 	\noindent{\scshape\contactstring}
 	\hfill
 	\parbox[t]{0.5\textwidth}{
@@ -152,7 +154,7 @@
 
 \AtEndDocument{
 	\vfill
-	\noindent\rule{\textwidth}{0.2\tAR}
+	\noindent\rule{\textwidth}{0.2\AR}
 	\vspace{0.002\paperheight}
 	
 	% footer section
