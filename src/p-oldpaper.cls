@@ -12,6 +12,7 @@
 \RequirePackage{authblk}
 \RequirePackage{tgpagella}
 \RequirePackage[T1]{fontenc}
+\RequirePackage{titlesec}
 
 \DeclareOption{draft}{
 	}
@@ -52,6 +53,13 @@
 	%\setlength{\parskip}{\tAR}
 }
 \textmagnification{1}
+
+% set section style
+\titleformat{\section}
+  {\Large\scshape\raggedright}
+  {}{0em}
+  {}
+  [\titlerule]
 
 \setlength{\columnsep}{0.04\textwidth}
 \newlength\titlefontsize{}
@@ -133,7 +141,7 @@
 		\end{flushright}
 	\end{minipage}
 	%
-	\noindent\rule{\textwidth}{1pt}
+	\noindent\rule{\textwidth}{0.2\tAR}
 	\noindent{\scshape\contactstring}
 	\hfill
 	\parbox[t]{0.5\textwidth}{
@@ -144,7 +152,7 @@
 
 \AtEndDocument{
 	\vfill
-	\noindent\rule{\textwidth}{1pt}
+	\noindent\rule{\textwidth}{0.2\tAR}
 	\vspace{0.002\paperheight}
 	
 	% footer section
