@@ -5,6 +5,7 @@
 
 \RequirePackage{geometry}
 \RequirePackage{calc}
+\RequirePackage{ifthen}
 \RequirePackage{anyfontsize}
 \RequirePackage{tikz}
 \RequirePackage{varwidth}
@@ -69,14 +70,18 @@
 \newcommand\footer[1]{\renewcommand\footerstring{#1}}
 \newcommand\contactstring{}
 \newcommand\contact[1]{\renewcommand\contactstring{#1}}
+
 \newcommand\overlayimg{}
-\newcommand\overlay[1]{\renewcommand\overlayimg{#1}}
+\newboolean{overlayimg_isset}
+\newcommand\overlay[1]{
+	\renewcommand\overlayimg{#1}%
+	\setboolean{overlayimg_isset}{true}
+	}
 
 \newcommand\affillist{\AB@affillist{}}
 
 \newcommand*{\vcenteredhbox}[1]{\begingroup
 \setbox0=\hbox{#1}\parbox{\wd0}{\box0}\endgroup}
-
 
 
 \AtBeginDocument{
@@ -126,8 +131,10 @@
 	
 	%overlay
 	\begin{tikzpicture}[remember picture, overlay]
-	    \node[inner sep=0pt] at (current page.center) {%
-	        %\includegraphics[width=\paperwidth,height=\paperheight]{\overlayimg}%
-	    };%
+		\node[inner sep=0pt] at (current page.center) {%
+			\ifthenelse{\boolean{overlayimg_isset}}{
+				\includegraphics[width=\paperwidth,height=\paperheight]{\overlayimg}
+			}{}
+		};%
 	\end{tikzpicture}
 }
