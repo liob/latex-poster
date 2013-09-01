@@ -6,7 +6,6 @@
 \RequirePackage{geometry}
 \RequirePackage{calc}
 \RequirePackage{anyfontsize}
-\RequirePackage[draft]{pgf}
 \RequirePackage{tikz}
 \RequirePackage{varwidth}
 \RequirePackage{authblk}
@@ -32,6 +31,7 @@
 % ToDo: make normalsize dependant on sqrt(\paperwidth*\paperheight)
 %\RequirePackage{fp}
 %\FPeval{AR}{pow(\the\paperwidth,4)}
+%\SQUAREROOT{\paperwidth*\paperheight}{\solution}
 \newlength\tAR{}
 \newcommand\textmagnification[1]{
 	\setlength{\tAR}{0.01\paperwidth*\real{#1}}
@@ -74,6 +74,8 @@
 
 \newcommand*{\vcenteredhbox}[1]{\begingroup
 \setbox0=\hbox{#1}\parbox{\wd0}{\box0}\endgroup}
+
+
 
 \AtBeginDocument{
 	% title section
