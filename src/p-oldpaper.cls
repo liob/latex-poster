@@ -47,6 +47,8 @@
 	\renewcommand{\huge}{\fontsize{1.8\tAR}{1.82\tAR}\selectfont}
 	\renewcommand{\Huge}{\fontsize{2\tAR}{2.02\tAR}\selectfont}
 	%\renewcommand{\HUGE}{\fontsize{2\tAR}{2.02\tAR}\selectfont}
+	
+	%\setlength{\parskip}{\tAR}
 }
 \textmagnification{1}
 
@@ -96,24 +98,19 @@
 				(0,0) --(0,2) -- (\textwidth,2) -- (\textwidth,0) -- cycle;
 			\end{tikzpicture}
 		}
-		
-		%\vspace{0.01\paperheight}
+		%
+		\vspace{0.01\paperheight}
 		\begin{flushright}
 			\AB@authlist
 		\end{flushright}
 	\end{minipage}
-	
-	% header section
-	%\vspace{0.015\paperheight}
-	%\noindent\begin{minipage}{\textwidth}
-	%\headerstring
-	%\end{minipage}
+	%
 	\noindent\rule{\textwidth}{1pt}
 	\noindent{\scshape\contactstring}
-	\begin{flushright}
-	\vspace{-0.030\paperheight}
-	\noindent\affillist
-	\end{flushright}
+	\hfill
+	\parbox[t]{0.5\textwidth}{
+		\raggedleft{\noindent\affillist}
+		}
 	\vfill
 }
 
